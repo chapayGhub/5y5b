@@ -1,0 +1,13 @@
+PODS:
+  - AFNetworking (1.0RC1)
+  - FrameAccessor (1.0.0)
+  - GPUImage (0.0.1)
+  - MBProgressHUD (0.5)
+  - NYXImagesKit (2.1.2)
+
+DEPENDENCIES:
+  - AFNetworking [HEAD]
+  - FrameAccessor [HEAD]
+  - GPUImage [HEAD]
+  - MBProgressHUD [HEAD]
+  - NYXImagesKit [HEAD]
