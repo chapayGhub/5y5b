@@ -1,5 +1,5 @@
 //
-//  QFrameButton.h
+//  QRequest.h
 //  Medicus
 //
 //  Created by Andrei on 9/5/12.
@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface QFrameButton : UIButton
+@interface QResponse : NSObject
 
+@property (nonatomic, strong) NSString*     rus;
+@property (nonatomic, strong) NSString*     eng;
+@property (nonatomic, strong) NSArray*      drug;
 
+@end
+
+@interface QRequest : NSObject
+
++(RKRequest*) postRequest:(UIImage*)image withDelegate:(id<RKObjectLoaderDelegate>)delegate;
 
 @end

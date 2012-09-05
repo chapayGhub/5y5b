@@ -4,3 +4,4 @@ pod 'NYXImagesKit',  :head
 pod 'GPUImage', :head
 pod 'AFNetworking', :head
 pod 'MBProgressHUD', :head
+pod 'RestKit', :head

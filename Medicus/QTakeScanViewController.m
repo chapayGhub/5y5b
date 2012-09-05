@@ -14,6 +14,8 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
 #import "QPhotoFrame.h"
+#import "QRequest.h"
+#import "MBProgressHUD.h"
 
 
 @interface QTakeScanViewController ()
@@ -48,6 +50,9 @@ enum {  FILTERS_COUNT = 3};
 
 @end
 
+@interface QTakeScanViewController(NetworkDelegate)<RKObjectLoaderDelegate>
+@end
+
 @implementation QTakeScanViewController
 @synthesize cameraView;
 @synthesize frameView;
@@ -77,7 +82,6 @@ enum {  FILTERS_COUNT = 3};
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
 
-    
     // Do any additional setup after loading the view from its nib.
     self.flashBtn.title      = self.turnFlash? NSLocalizedString(@"Flash On", nil): NSLocalizedString(@"Flash Off", nil);
     self.searchBtn.enabled   = NO;
@@ -120,6 +124,9 @@ enum {  FILTERS_COUNT = 3};
 
     if(!self.session.running)
         [self.session startRunning];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [QRequest postRequest:[UIImage imageNamed:@"33"] withDelegate:self];
 }
 
 -(void) viewDidDisappear:(BOOL)animated
@@ -134,6 +141,9 @@ enum {  FILTERS_COUNT = 3};
 }
 
 - (IBAction)searchBtnPressed:(id)sender {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [QRequest postRequest:resultsView.image withDelegate:self];
 }
 
 - (IBAction)photoBtnPressed:(id)sender {
@@ -211,6 +221,10 @@ enum {  FILTERS_COUNT = 3};
 
 - (IBAction)applyNextFilter:(id)sender {
     [self applyFilter];
+}
+
+- (IBAction)cancelBtnPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) setupPhotoSession
@@ -369,4 +383,43 @@ enum {  FILTERS_COUNT = 3};
     return subImage;
 }
 
+@end
+
+@implementation QTakeScanViewController(NetworkDelegate)
+
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error{
+    
+    NSLog(@"Error: %@", [error localizedDescription]);
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    
+    if ([request isGET]) {
+        if ([response isOK]) {
+            NSLog(@"Data returned: %@", [response bodyAsString]);
+        }
+    } else if ([request isPOST]) {
+        NSLog(@"Body: %@", [[NSString alloc]initWithData:response.body encoding:response.bodyEncoding]);        
+        if ([response isJSON]) {
+            NSLog(@"POST returned a JSON response");
+        }
+    } else if ([request isDELETE]) {
+        if ([response isNotFound]) {
+            NSLog(@"Resource '%@' not exists", [request resourcePath]);
+        }
+    }
+    
+    NSLog(@"response code: %d", [response statusCode]);
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects{
+    
+    NSLog(@"objects[%d]", [objects count]);
+    NSLog(@"objects = %@", objects);
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];    
+}
 @end

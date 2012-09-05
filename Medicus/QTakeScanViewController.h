@@ -28,6 +28,7 @@
 - (IBAction)flashBtnPressed:(id)sender;
 - (IBAction)retakeBtnPressed:(id)sender;
 - (IBAction)applyNextFilter:(id)sender;
+- (IBAction)cancelBtnPressed:(id)sender;
 
 
 
