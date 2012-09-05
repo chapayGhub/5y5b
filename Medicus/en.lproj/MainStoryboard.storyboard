@@ -1,24 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1906" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="6" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qwF-cT-0bc">
     <dependencies>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="902"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
-        <scene sceneID="5">
+        <!--Scan View Controller - Scan search-->
+        <scene sceneID="AkU-33-10K">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <viewController id="2" customClass="QViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdZ-Gi-xvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="zrD-4e-IzL" customClass="QScanViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4RT-jS-JfC">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Scan search" id="QLA-cN-Mxn"/>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="25" y="460"/>
+        </scene>
+        <!--View Controller - History-->
+        <scene sceneID="imR-q7-x1H">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngZ-qi-8iG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="uKQ-dk-zXj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pSN-6T-caX">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" id="aSO-vW-rfB"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="25" y="-105"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="aV0-WU-KUW">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TtO-Rb-D4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController definesPresentationContext="YES" id="qwF-cT-0bc" customClass="QMainTabBarController" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3Lb-gv-F2b">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uKQ-dk-zXj" kind="relationship" relationship="viewControllers" id="E8d-gC-PJn"/>
+                        <segue destination="zrD-4e-IzL" kind="relationship" relationship="viewControllers" id="TC1-Wy-rs4"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-492" y="144"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="QMainTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QMainTabBarController.h"/>
+        </class>
+        <class className="QScanViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QScanViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showTakePhotoScreen:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
