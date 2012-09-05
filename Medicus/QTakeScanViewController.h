@@ -20,12 +20,14 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *photoBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *flashBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *retakeBtn;
+@property (weak, nonatomic) IBOutlet UIButton        *filterButton;
 
 
 - (IBAction)searchBtnPressed:(id)sender;
 - (IBAction)photoBtnPressed:(id)sender;
 - (IBAction)flashBtnPressed:(id)sender;
 - (IBAction)retakeBtnPressed:(id)sender;
+- (IBAction)applyNextFilter:(id)sender;
 
 
 

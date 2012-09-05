@@ -56,6 +56,7 @@ enum {  FILTERS_COUNT = 3};
 @synthesize photoBtn;
 @synthesize flashBtn;
 @synthesize retakeBtn;
+@synthesize filterButton;
 @synthesize turnFlash;
 @synthesize session;
 @synthesize stillImageOutput;
@@ -84,7 +85,8 @@ enum {  FILTERS_COUNT = 3};
     self.flashBtn.enabled    = YES;
     self.retakeBtn.enabled   = NO;
     
-    self.resultsView.hidden = YES;
+    self.filterButton.hidden = YES;
+    self.resultsView.hidden  = YES;
 }
 
 - (void)viewDidUnload
@@ -105,6 +107,7 @@ enum {  FILTERS_COUNT = 3};
     [[UIApplication sharedApplication] setStatusBarHidden:NO
                                             withAnimation:UIStatusBarAnimationFade];
     
+    [self setFilterButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -134,14 +137,14 @@ enum {  FILTERS_COUNT = 3};
 }
 
 - (IBAction)photoBtnPressed:(id)sender {
+
     self.searchBtn.enabled   = YES;
     self.photoBtn.enabled    = NO;
     self.flashBtn.enabled    = NO;
     self.retakeBtn.enabled   = YES;
-
-    self.resultsView.hidden  = NO;
     
     self.filterIndex = 0;
+    self.frameView.frozeFrame = YES;
     
 	AVCaptureConnection *videoConnection = nil;
 	for (AVCaptureConnection *connection in stillImageOutput.connections)
@@ -169,6 +172,7 @@ enum {  FILTERS_COUNT = 3};
          else
              NSLog(@"no attachments");
          
+         [self turnTorchOn:NO];
          NSData *imageData  = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
          UIImage *image     = [[UIImage alloc] initWithData:imageData];
          
@@ -179,10 +183,12 @@ enum {  FILTERS_COUNT = 3};
          
          self.resultsView.frame  = self.frameView.savedFrame;
          self.resultsView.image  = self.rawImage;
+        
+         [self applyFilter];
          
+         self.resultsView.hidden  = NO;
+         self.filterButton.hidden = NO;
 	 }];
-    [self turnTorchOn:NO];
-//    [self applyFilter];
 }
 
 - (IBAction)flashBtnPressed:(id)sender {
@@ -198,10 +204,15 @@ enum {  FILTERS_COUNT = 3};
     self.retakeBtn.enabled   = NO;
 
     self.resultsView.hidden  = YES;
-
+    self.filterButton.hidden = YES;
+    
+    self.frameView.frozeFrame = NO;
 }
 
-//take frame by action
+- (IBAction)applyNextFilter:(id)sender {
+    [self applyFilter];
+}
+
 -(void) setupPhotoSession
 {
     if(self.session)
@@ -275,11 +286,11 @@ enum {  FILTERS_COUNT = 3};
     
     if([self respondsToSelector:filters[self.filterIndex]])
     {
-            self.resultsView.image = [self performSelector:filters[self.filterIndex] withObject:self.rawImage];
+        self.resultsView.image = [self performSelector:filters[self.filterIndex] withObject:self.rawImage];
     }
     
-//    NSString* filterName = NSStringFromSelector(filters[self.filterIndex]);
-//    [self.filterBtn setTitle:filterName forState:UIControlStateNormal];
+    NSString* filterName = NSStringFromSelector(filters[self.filterIndex]);
+    [self.filterButton setTitle:filterName forState:UIControlStateNormal];
     
     self.filterIndex++;
 }

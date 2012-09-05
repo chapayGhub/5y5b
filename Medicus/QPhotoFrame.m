@@ -25,6 +25,7 @@ NSString *LAST_PHOTO_FRAME = @"Last_Photo_Frame";
 @synthesize frameSize;
 @synthesize photoFrame;
 @synthesize savedFrame;
+@synthesize frozeFrame;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -100,6 +101,10 @@ NSString *LAST_PHOTO_FRAME = @"Last_Photo_Frame";
 }
 
 -(void)move:(id)sender {
+    
+    if(self.frozeFrame)
+        return
+    
 	[self bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
 	CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self];
     
