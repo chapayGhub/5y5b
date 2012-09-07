@@ -3,7 +3,7 @@
 //  Medicus
 //
 //  Created by Andrei on 9/2/12.
-//  Copyright (c) 2012 mozido. All rights reserved.
+//  Copyright (c) 2012 Q. All rights reserved.
 //
 
 #import "QTakeScanViewController.h"
@@ -16,7 +16,6 @@
 #import "QPhotoFrame.h"
 #import "QRequest.h"
 #import "MBProgressHUD.h"
-
 
 @interface QTakeScanViewController ()
 
@@ -125,8 +124,7 @@ enum {  FILTERS_COUNT = 3};
     if(!self.session.running)
         [self.session startRunning];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [QRequest postRequest:[UIImage imageNamed:@"33"] withDelegate:self];
+
 }
 
 -(void) viewDidDisappear:(BOOL)animated
@@ -419,7 +417,10 @@ enum {  FILTERS_COUNT = 3};
     
     NSLog(@"objects[%d]", [objects count]);
     NSLog(@"objects = %@", objects);
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     
-    [MBProgressHUD hideHUDForView:self.view animated:YES];    
+    [QSearchResult instance].result = objects;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

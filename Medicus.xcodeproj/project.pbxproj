@@ -23,6 +23,8 @@
 		3E52AC6015F4079700A860C2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E52AC5F15F4079600A860C2 /* CoreMedia.framework */; };
 		3E52AC6215F407A300A860C2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E52AC6115F407A300A860C2 /* CoreVideo.framework */; };
 		3E52AC6415F407AD00A860C2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E52AC6315F407AD00A860C2 /* AVFoundation.framework */; };
+		3E8FCC0515F9661100D3529D /* QSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FCC0415F9661100D3529D /* QSearchResultCell.m */; };
+		3E8FCC0B15F9687B00D3529D /* QSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FCC0A15F9687B00D3529D /* QSearchResultCell.xib */; };
 		3EFF97C515F76D8500CF0B05 /* QFrameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF97C415F76D8500CF0B05 /* QFrameButton.m */; };
 		3EFF97DC15F79EE900CF0B05 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF97DB15F79EE900CF0B05 /* CFNetwork.framework */; };
 		3EFF97DF15F79EF300CF0B05 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF97DE15F79EF300CF0B05 /* CoreData.framework */; };
@@ -62,6 +64,9 @@
 		3E52AC5F15F4079600A860C2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		3E52AC6115F407A300A860C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		3E52AC6315F407AD00A860C2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3E8FCC0315F9661100D3529D /* QSearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSearchResultCell.h; sourceTree = "<group>"; };
+		3E8FCC0415F9661100D3529D /* QSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSearchResultCell.m; sourceTree = "<group>"; };
+		3E8FCC0A15F9687B00D3529D /* QSearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSearchResultCell.xib; sourceTree = "<group>"; };
 		3EFF97C315F76D8500CF0B05 /* QFrameButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFrameButton.h; sourceTree = "<group>"; };
 		3EFF97C415F76D8500CF0B05 /* QFrameButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFrameButton.m; sourceTree = "<group>"; };
 		3EFF97DB15F79EE900CF0B05 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -146,6 +151,7 @@
 		3E52AC2B15F3E03100A860C2 /* Medicus */ = {
 			isa = PBXGroup;
 			children = (
+				3E8FCC0115F965A900D3529D /* Table */,
 				3EFF97EA15F7A01B00CF0B05 /* Network */,
 				3EFF97C315F76D8500CF0B05 /* QFrameButton.h */,
 				3EFF97C415F76D8500CF0B05 /* QFrameButton.m */,
@@ -177,6 +183,16 @@
 				3E52AC3315F3E03100A860C2 /* Medicus-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E8FCC0115F965A900D3529D /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				3E8FCC0315F9661100D3529D /* QSearchResultCell.h */,
+				3E8FCC0415F9661100D3529D /* QSearchResultCell.m */,
+				3E8FCC0A15F9687B00D3529D /* QSearchResultCell.xib */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 		3EFF97EA15F7A01B00CF0B05 /* Network */ = {
@@ -225,7 +241,7 @@
 			attributes = {
 				CLASSPREFIX = Q;
 				LastUpgradeCheck = 0440;
-				ORGANIZATIONNAME = mozido;
+				ORGANIZATIONNAME = Q;
 			};
 			buildConfigurationList = 3E52AC1B15F3E03100A860C2 /* Build configuration list for PBXProject "Medicus" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -253,6 +269,7 @@
 				3E52AC3915F3E03100A860C2 /* MainStoryboard.storyboard in Resources */,
 				3E52AC5B15F3F28D00A860C2 /* QTakeScanViewController.xib in Resources */,
 				3EFF97F715F7C15B00CF0B05 /* 33.png in Resources */,
+				3E8FCC0B15F9687B00D3529D /* QSearchResultCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +306,7 @@
 				3E52AC5E15F3F36400A860C2 /* QPhotoFrame.m in Sources */,
 				3EFF97C515F76D8500CF0B05 /* QFrameButton.m in Sources */,
 				3EFF97ED15F7A01B00CF0B05 /* QRequest.m in Sources */,
+				3E8FCC0515F9661100D3529D /* QSearchResultCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
