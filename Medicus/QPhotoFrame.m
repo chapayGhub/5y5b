@@ -43,7 +43,7 @@ NSString *LAST_PHOTO_FRAME = @"Last_Photo_Frame";
     self.backgroundColor = [UIColor clearColor];
 
     CGRect  rect    = self.frame;
-    self.photoFrame = rect;
+    self.photoFrame = CGRectMake(0,0,316,432);
     self.frameSize  = rect.size;
     self.maxSize    = self.frame.size;
     self.savedFrame = CGRectZero;
@@ -96,6 +96,10 @@ NSString *LAST_PHOTO_FRAME = @"Last_Photo_Frame";
     
     CGContextSetLineWidth(context, 3.0f);
     CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+    rectangle.origin.x    -=1;
+    rectangle.origin.y    -=1;
+    rectangle.size.width  +=2;
+    rectangle.size.height +=2;
     CGContextAddRect(context, rectangle);
     CGContextStrokePath(context);
 }

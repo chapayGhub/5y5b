@@ -12,13 +12,14 @@
 
 @interface QScanViewController ()
 
-@property (weak, nonatomic) UISearchBar *searchBar;
+@property (strong, nonatomic) UISearchBar *searchBar;
 
 @end
 
 @implementation QScanViewController
 @synthesize searchBar;
 @synthesize searchResultsTbl;
+@synthesize topToolBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,28 +33,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    
-//    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,300, 44)];
-//    self.searchBar.backgroundColor = [UIColor clearColor];
-//    UIBarButtonItem * scanBtn     = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
-//                                                                                  target:self
-//                                                                                  action:@selector(startScan)];
-//    [scanBtn setBackgroundImage:[UIImage imageNamed:@"btn-scan-norm"]
-//                       forState:UIControlStateNormal
-//                     barMetrics:UIBarMetricsDefault];
-//    [scanBtn setBackgroundImage:[UIImage imageNamed:@"btn-scan-active"]
-//                       forState:UIControlStateHighlighted
-//                     barMetrics:UIBarMetricsDefault];
-//
-//    self.navigation.leftBarButtonItems = [NSArray arrayWithObjects:self.searchBar, nil];
-//    self.navigation.rightBarButtonItems = [NSArray arrayWithObjects:scanBtn, nil];
-//    self.searchBar.delegate = self;
+    self.searchBar                 = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,250, 42)];
+    self.searchBar.barStyle        = UIBarStyleBlack;
+    self.searchBar.backgroundColor = [UIColor clearColor];
+    self.searchBar.delegate        = self;
+    
+    UIView *searchBarContainer = [[UIView alloc] initWithFrame:self.searchBar.frame];
+    [searchBarContainer addSubview:self.searchBar];
+
+    UIBarButtonItem *searchBarItem = [[UIBarButtonItem alloc] initWithCustomView:searchBarContainer];
+    NSArray* toolBarItems = [[NSArray arrayWithObjects:searchBarItem, nil] arrayByAddingObjectsFromArray:self.topToolBar.items];
+    [self.topToolBar setItems:toolBarItems animated:YES];
 }
 
 - (void)viewDidUnload
 {
     [self setSearchResultsTbl:nil];
     [self setSearchBar:nil];
+    [self setTopToolBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -73,8 +70,13 @@
 
 - (void)showTakePhotoScreen {
     QTakeScanViewController *takePhotoController = [[QTakeScanViewController alloc] initWithNibName:@"QTakeScanViewController" bundle:[NSBundle mainBundle]];
-    UINavigationController *navController   = [[UINavigationController alloc] initWithRootViewController:takePhotoController];
-    [self presentModalViewController:navController animated:NO];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO
+                                            withAnimation:UIStatusBarAnimationSlide];
+    
+    takePhotoController.modalTransitionStyle    = UIModalTransitionStyleCrossDissolve;
+    takePhotoController.modalPresentationStyle  = UIModalPresentationFullScreen;
+    [self presentModalViewController:takePhotoController animated:YES];
 }
 
 - (void)startScan {

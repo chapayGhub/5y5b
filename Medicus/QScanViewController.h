@@ -11,6 +11,7 @@
 @interface QScanViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView        *searchResultsTbl;
+@property (weak, nonatomic) IBOutlet UIToolbar          *topToolBar;
 
 - (IBAction)pressTakePhoto:(id)sender;
 @end

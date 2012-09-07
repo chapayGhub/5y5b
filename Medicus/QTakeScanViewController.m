@@ -107,8 +107,6 @@ enum {  FILTERS_COUNT = 3};
     [self setRetakeBtn:nil];
     [self setSearchBtn:nil];
     [self setCameraView:nil];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO
-                                            withAnimation:UIStatusBarAnimationFade];
     
     [self setFilterButton:nil];
     [super viewDidUnload];
@@ -222,7 +220,7 @@ enum {  FILTERS_COUNT = 3};
 }
 
 - (IBAction)cancelBtnPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self hide];
 }
 
 -(void) setupPhotoSession
@@ -283,6 +281,14 @@ enum {  FILTERS_COUNT = 3};
         }
     }
 }
+
+-(void) hide
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO
+                                            withAnimation:UIStatusBarAnimationFade];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
 
@@ -420,7 +426,7 @@ enum {  FILTERS_COUNT = 3};
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     
     [QSearchResult instance].result = objects;
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self hide];
+
 }
 @end

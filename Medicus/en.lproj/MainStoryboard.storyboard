@@ -27,7 +27,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem width="263" style="plain" systemItem="fixedSpace" id="hJG-PD-Rg7"/>
                                     <barButtonItem systemItem="camera" id="0CF-BS-Voq">
                                         <connections>
                                             <action selector="pressTakePhoto:" destination="zrD-4e-IzL" id="3IC-Xh-IbU"/>
@@ -42,6 +41,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="searchResultsTbl" destination="oyz-99-IAc" id="ceh-Um-alD"/>
+                        <outlet property="topToolBar" destination="LON-so-XyF" id="icb-gM-sun"/>
                     </connections>
                 </viewController>
             </objects>
@@ -90,9 +90,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QScanViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pressTakePhoto:"/>
-                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="navigation" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="searchResultsTbl" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="topToolBar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
     </classes>
