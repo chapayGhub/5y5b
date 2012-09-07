@@ -19,8 +19,6 @@
 @implementation QScanViewController
 @synthesize searchBar;
 @synthesize searchResultsTbl;
-@synthesize bar;
-@synthesize takePhoto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,8 +54,6 @@
 {
     [self setSearchResultsTbl:nil];
     [self setSearchBar:nil];
-    [self setBar:nil];
-    [self setTakePhoto:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

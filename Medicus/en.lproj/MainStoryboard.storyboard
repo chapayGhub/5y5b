@@ -23,28 +23,25 @@
                                     <outlet property="delegate" destination="4RT-jS-JfC" id="B4n-E4-N8w"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="RII-E1-jzy">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="LON-so-XyF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="25y-9U-Uze">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="xan-wd-i1c">
-                                            <connections>
-                                                <action selector="pressTakePhoto:" destination="zrD-4e-IzL" id="phH-m8-lDv"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <barButtonItem width="263" style="plain" systemItem="fixedSpace" id="hJG-PD-Rg7"/>
+                                    <barButtonItem systemItem="camera" id="0CF-BS-Voq">
+                                        <connections>
+                                            <action selector="pressTakePhoto:" destination="zrD-4e-IzL" id="3IC-Xh-IbU"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                            </navigationBar>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="QLA-cN-Mxn"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="bar" destination="RII-E1-jzy" id="kFg-RT-cuK"/>
                         <outlet property="searchResultsTbl" destination="oyz-99-IAc" id="ceh-Um-alD"/>
-                        <outlet property="takePhoto" destination="xan-wd-i1c" id="8cx-wC-32e"/>
                     </connections>
                 </viewController>
             </objects>
@@ -93,11 +90,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QScanViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pressTakePhoto:"/>
-                <relationship kind="outlet" name="bar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="navigation" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="searchResultsTbl" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="takePhoto" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
     </classes>
