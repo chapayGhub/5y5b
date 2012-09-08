@@ -1,5 +1,5 @@
 //
-//  QRequest.h
+//  QScanRequest
 //  Medicus
 //
 //  Created by Andrei on 9/5/12.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface QResponse : NSObject
+@interface QScanResponse : NSObject
 
 @property (nonatomic, strong) NSString*     rus;
 @property (nonatomic, strong) NSString*     eng;
@@ -27,17 +27,16 @@
 
 @end
 
-@interface QRequest : NSObject
+@interface QScanRequest : NSObject
 
 +(RKRequest*) postRequest:(UIImage*)image withDelegate:(id<RKObjectLoaderDelegate>)delegate;
 
 @end
 
-@interface QSearchResult : NSObject
+@interface QScanResult : NSObject
 
-+(QSearchResult*) instance;
++(QScanResult*) instance;
 
 @property (nonatomic, strong) NSArray* result;
 
 @end
-

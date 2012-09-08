@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E50664A15FAB82300E9A2EF /* QSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E50664915FAB82300E9A2EF /* QSearchRequest.m */; };
+		3E50664D15FAB91C00E9A2EF /* QNetworkRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E50664C15FAB91C00E9A2EF /* QNetworkRequests.m */; };
 		3E52AC2615F3E03100A860C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E52AC2515F3E03100A860C2 /* UIKit.framework */; };
 		3E52AC2815F3E03100A860C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E52AC2715F3E03100A860C2 /* Foundation.framework */; };
 		3E52AC2A15F3E03100A860C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E52AC2915F3E03100A860C2 /* CoreGraphics.framework */; };
@@ -33,12 +35,16 @@
 		3EFF97E515F79F1900CF0B05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF97E415F79F1900CF0B05 /* QuartzCore.framework */; };
 		3EFF97E715F79F2200CF0B05 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF97E615F79F2200CF0B05 /* SystemConfiguration.framework */; };
 		3EFF97E915F79F2D00CF0B05 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFF97E815F79F2D00CF0B05 /* Security.framework */; };
-		3EFF97ED15F7A01B00CF0B05 /* QRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF97EC15F7A01B00CF0B05 /* QRequest.m */; };
+		3EFF97ED15F7A01B00CF0B05 /* QScanRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF97EC15F7A01B00CF0B05 /* QScanRequest.m */; };
 		3EFF97F715F7C15B00CF0B05 /* 33.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EFF97F615F7C15B00CF0B05 /* 33.png */; };
 		93E2F9A1F68049FB8E0E2FB4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8C5E8520B44BCB556AC3E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E50664815FAB82300E9A2EF /* QSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSearchRequest.h; sourceTree = "<group>"; };
+		3E50664915FAB82300E9A2EF /* QSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSearchRequest.m; sourceTree = "<group>"; };
+		3E50664B15FAB89700E9A2EF /* QNetworkRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNetworkRequests.h; sourceTree = "<group>"; };
+		3E50664C15FAB91C00E9A2EF /* QNetworkRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNetworkRequests.m; sourceTree = "<group>"; };
 		3E52AC2115F3E03100A860C2 /* Medicus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medicus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E52AC2515F3E03100A860C2 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3E52AC2715F3E03100A860C2 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,8 +82,8 @@
 		3EFF97E415F79F1900CF0B05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3EFF97E615F79F2200CF0B05 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3EFF97E815F79F2D00CF0B05 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		3EFF97EB15F7A01B00CF0B05 /* QRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRequest.h; sourceTree = "<group>"; };
-		3EFF97EC15F7A01B00CF0B05 /* QRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRequest.m; sourceTree = "<group>"; };
+		3EFF97EB15F7A01B00CF0B05 /* QScanRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QScanRequest.h; sourceTree = "<group>"; };
+		3EFF97EC15F7A01B00CF0B05 /* QScanRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QScanRequest.m; sourceTree = "<group>"; };
 		3EFF97F615F7C15B00CF0B05 /* 33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 33.png; sourceTree = "<group>"; };
 		4477136C0224470C91DA7A61 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		EAB8C5E8520B44BCB556AC3E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,8 +204,12 @@
 		3EFF97EA15F7A01B00CF0B05 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				3EFF97EB15F7A01B00CF0B05 /* QRequest.h */,
-				3EFF97EC15F7A01B00CF0B05 /* QRequest.m */,
+				3E50664815FAB82300E9A2EF /* QSearchRequest.h */,
+				3E50664915FAB82300E9A2EF /* QSearchRequest.m */,
+				3EFF97EB15F7A01B00CF0B05 /* QScanRequest.h */,
+				3EFF97EC15F7A01B00CF0B05 /* QScanRequest.m */,
+				3E50664B15FAB89700E9A2EF /* QNetworkRequests.h */,
+				3E50664C15FAB91C00E9A2EF /* QNetworkRequests.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -305,8 +315,10 @@
 				3E52AC5A15F3F28D00A860C2 /* QTakeScanViewController.m in Sources */,
 				3E52AC5E15F3F36400A860C2 /* QPhotoFrame.m in Sources */,
 				3EFF97C515F76D8500CF0B05 /* QFrameButton.m in Sources */,
-				3EFF97ED15F7A01B00CF0B05 /* QRequest.m in Sources */,
+				3EFF97ED15F7A01B00CF0B05 /* QScanRequest.m in Sources */,
 				3E8FCC0515F9661100D3529D /* QSearchResultCell.m in Sources */,
+				3E50664A15FAB82300E9A2EF /* QSearchRequest.m in Sources */,
+				3E50664D15FAB91C00E9A2EF /* QNetworkRequests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

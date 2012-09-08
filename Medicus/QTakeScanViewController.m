@@ -14,7 +14,7 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
 #import "QPhotoFrame.h"
-#import "QRequest.h"
+#import "QScanRequest.h"
 #import "MBProgressHUD.h"
 
 @interface QTakeScanViewController ()
@@ -90,6 +90,9 @@ enum {  FILTERS_COUNT = 3};
     
     self.filterButton.hidden = YES;
     self.resultsView.hidden  = YES;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [QScanRequest postRequest:[UIImage imageNamed:@"33"] withDelegate:self];
 }
 
 - (void)viewDidUnload
@@ -139,7 +142,7 @@ enum {  FILTERS_COUNT = 3};
 - (IBAction)searchBtnPressed:(id)sender {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [QRequest postRequest:resultsView.image withDelegate:self];
+    [QScanRequest postRequest:self.resultsView.image withDelegate:self];
 }
 
 - (IBAction)photoBtnPressed:(id)sender {
@@ -391,14 +394,13 @@ enum {  FILTERS_COUNT = 3};
 
 @implementation QTakeScanViewController(NetworkDelegate)
 
-
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error{
     
     NSLog(@"Error: %@", [error localizedDescription]);
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+- (void)request:(RKRequest*)request :(RKResponse*)response {
     
     if ([request isGET]) {
         if ([response isOK]) {
@@ -425,8 +427,9 @@ enum {  FILTERS_COUNT = 3};
     NSLog(@"objects = %@", objects);
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     
-    [QSearchResult instance].result = objects;
+    [QScanResult instance].result = objects;
     [self hide];
 
 }
+
 @end

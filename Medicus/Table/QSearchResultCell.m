@@ -46,8 +46,13 @@
 
 +(NSString*) formatString:(NSString*)source
 {
-    NSString* result = [source stringByReplacingOccurrencesOfString:@"<SUP>&reg" withString:@""];
-    return [result stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSArray* replacments = @[@"<SUP>", @"&reg", @"<\\/SUP>", @"</SUP>", @";", @"\n"];
+    
+    NSString* result = source;
+    for (NSString* toDelete in replacments) {
+        result = [result stringByReplacingOccurrencesOfString:toDelete withString:@""];
+    }
+    return result;
 }
 
 

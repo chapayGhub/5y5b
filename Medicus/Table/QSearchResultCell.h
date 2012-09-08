@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QRequest.h"
+#import "QScanRequest.h"
 
 @interface QSearchResultCell : UITableViewCell
 
