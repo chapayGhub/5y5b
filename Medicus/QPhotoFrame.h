@@ -15,8 +15,9 @@ extern NSString *LAST_PHOTO_FRAME;
 -(void) saveSelectedFrameRect;
 
 
-@property (nonatomic, assign) BOOL   frozeFrame;
-@property (nonatomic, assign) CGRect photoFrame;
-@property (nonatomic, assign) CGRect savedFrame;
+@property (nonatomic, assign) BOOL     frozeFrame;
+@property (nonatomic, assign) CGRect   photoFrame;
+@property (nonatomic, assign) CGRect   savedFrame;
+@property (nonatomic, strong) NSArray *rects;
 
 @end

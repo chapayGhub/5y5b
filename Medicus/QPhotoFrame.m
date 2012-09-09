@@ -26,6 +26,7 @@ NSString *LAST_PHOTO_FRAME = @"Last_Photo_Frame";
 @synthesize photoFrame;
 @synthesize savedFrame;
 @synthesize frozeFrame;
+@synthesize rects;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -94,6 +95,8 @@ NSString *LAST_PHOTO_FRAME = @"Last_Photo_Frame";
     shadow.size      = CGSizeMake(rect.size.width, rect.size.height-(rectangle.origin.y+rectangle.size.height));
     CGContextFillRect(context, shadow);
     
+    [self drawRects:context];
+    
     CGContextSetLineWidth(context, 3.0f);
     CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
     rectangle.origin.x    -=1;
@@ -102,6 +105,20 @@ NSString *LAST_PHOTO_FRAME = @"Last_Photo_Frame";
     rectangle.size.height +=2;
     CGContextAddRect(context, rectangle);
     CGContextStrokePath(context);
+}
+
+-(void) drawRects:(CGContextRef) context
+{
+    if(!self.rects)
+        return;
+    
+    CGContextSetLineWidth(context, 2.0f);
+    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+    
+    for (NSValue *value in self.rects) {
+        CGRect rectangle = [value CGRectValue];
+        CGContextAddRect(context, rectangle);
+    }
 }
 
 -(void)move:(id)sender {

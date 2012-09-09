@@ -43,7 +43,15 @@
 @implementation QScanRequest
 
 +(RKRequest*) postRequest:(UIImage*)image withDelegate:(id<RKObjectLoaderDelegate>)delegate
-{    
+{
+    NSLog(@"w=%d, h=%d", (int)image.size.width, (int)image.size.height );
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"image%@.png", [NSDate date],nil]];
+    NSData* imageData    = UIImagePNGRepresentation(image);
+    [imageData writeToFile:appFile atomically:NO];
+    
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/ocr/api/ocr/upload" usingBlock:^(RKObjectLoader *loader) {
         RKParams* params     = [RKParams params];
         NSData* imageData    = UIImagePNGRepresentation(image);
