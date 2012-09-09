@@ -91,8 +91,8 @@ enum {  FILTERS_COUNT = 3};
     self.filterButton.hidden = YES;
     self.resultsView.hidden  = YES;
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [QScanRequest postRequest:[UIImage imageNamed:@"33"] withDelegate:self];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    [QScanRequest postRequest:[UIImage imageNamed:@"33"] withDelegate:self];
 }
 
 - (void)viewDidUnload

@@ -32,6 +32,7 @@ PODS:
     - RestKit/Network
   - RestKit/UI (0.10.2)
   - SOCKit (1.0)
+  - TestFlightSDK (1.0)
   - cocoa-oauth (0.0.1):
     - NSData+Base64 (~> 1.0)
 
@@ -42,3 +43,4 @@ DEPENDENCIES:
   - MBProgressHUD [HEAD]
   - NYXImagesKit [HEAD]
   - RestKit [HEAD]
+  - TestFlightSDK (= 1.0)

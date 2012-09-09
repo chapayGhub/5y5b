@@ -8,11 +8,17 @@
 
 #import "QAppDelegate.h"
 
+#define TEST_FLIGTH_TOKEN @"c96f1a86f8707912bd0ce033cbf45673_MTMwMTExMjAxMi0wOS0wOSAwNzo1MDoxMi40MzM2NDQ"
+
+
 @implementation QAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [TestFlight takeOff:TEST_FLIGTH_TOKEN];
+    
     return YES;
 }
 							

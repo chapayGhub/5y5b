@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2A5AD415FCBDDD00058768 /* QAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2A5AD315FCBDDD00058768 /* QAboutViewController.m */; };
 		3E50664A15FAB82300E9A2EF /* QSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E50664915FAB82300E9A2EF /* QSearchRequest.m */; };
 		3E50664D15FAB91C00E9A2EF /* QNetworkRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E50664C15FAB91C00E9A2EF /* QNetworkRequests.m */; };
 		3E52AC2615F3E03100A860C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E52AC2515F3E03100A860C2 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E2A5AD215FCBDDD00058768 /* QAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAboutViewController.h; sourceTree = "<group>"; };
+		3E2A5AD315FCBDDD00058768 /* QAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAboutViewController.m; sourceTree = "<group>"; };
 		3E50664815FAB82300E9A2EF /* QSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSearchRequest.h; sourceTree = "<group>"; };
 		3E50664915FAB82300E9A2EF /* QSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSearchRequest.m; sourceTree = "<group>"; };
 		3E50664B15FAB89700E9A2EF /* QNetworkRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNetworkRequests.h; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 				3E52AC3A15F3E03100A860C2 /* QViewController.h */,
 				3E52AC3B15F3E03100A860C2 /* QViewController.m */,
 				3E52AC2C15F3E03100A860C2 /* Supporting Files */,
+				3E2A5AD215FCBDDD00058768 /* QAboutViewController.h */,
+				3E2A5AD315FCBDDD00058768 /* QAboutViewController.m */,
 			);
 			path = Medicus;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				3E8FCC0515F9661100D3529D /* QSearchResultCell.m in Sources */,
 				3E50664A15FAB82300E9A2EF /* QSearchRequest.m in Sources */,
 				3E50664D15FAB91C00E9A2EF /* QNetworkRequests.m in Sources */,
+				3E2A5AD415FCBDDD00058768 /* QAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4477136C0224470C91DA7A61 /* Pods.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Medicus/Medicus-Prefix.pch";
 				INFOPLIST_FILE = "Medicus/Medicus-Info.plist";
